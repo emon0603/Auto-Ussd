@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
     private static final int MY_PERMISSIONS_REQUEST_PHONE_CALL = 1;
 
-    private EditText ussdEditText;
+    private EditText ussdEditText,ed1,ed2;
     private Button callUssdBtn,acceb_bt;
 
     @Override
@@ -33,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
         acceb_bt = findViewById(R.id.acceb_bt);
 
         acceb_bt.setOnClickListener(view->{
-
             Intent intent = new Intent(android.provider.Settings.ACTION_ACCESSIBILITY_SETTINGS);
             startActivity(intent);
 
@@ -66,6 +65,8 @@ public class MainActivity extends AppCompatActivity {
     private void runUssd(){
         //String ussdCode = "*123#";
         String ussdCode = ussdEditText.getText().toString();
+
+
 
         Intent intent = new Intent(Intent.ACTION_CALL);
         intent.setData(ussdToCallableUri(ussdCode));
