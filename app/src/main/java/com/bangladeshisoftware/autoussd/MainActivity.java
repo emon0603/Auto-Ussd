@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private static final int MY_PERMISSIONS_REQUEST_PHONE_CALL = 1;
 
     private EditText ussdEditText;
-    private Button callUssdBtn;
+    private Button callUssdBtn,acceb_bt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +30,14 @@ public class MainActivity extends AppCompatActivity {
 
         ussdEditText = findViewById(R.id.ussdEditText);
         callUssdBtn = findViewById(R.id.callUssdBtn);
+        acceb_bt = findViewById(R.id.acceb_bt);
+
+        acceb_bt.setOnClickListener(view->{
+
+            Intent intent = new Intent(android.provider.Settings.ACTION_ACCESSIBILITY_SETTINGS);
+            startActivity(intent);
+
+        });
 
         if (ContextCompat.checkSelfPermission(this,
                 android.Manifest.permission.CALL_PHONE)
