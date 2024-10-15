@@ -10,7 +10,7 @@
     android:gravity="center"
     >
 
-    <EditText
+    <!--====<EditText
         android:id="@+id/ussdEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,6 +19,7 @@
         android:inputType="phone"
         android:textAlignment="center"
         />
+        -->
 
 
     <Button

@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
     private static final int MY_PERMISSIONS_REQUEST_PHONE_CALL = 1;
 
-    private EditText ussdEditText,ed1,ed2;
+    private EditText ussdEditText;
     private Button callUssdBtn,acceb_bt;
 
     @Override
@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ussdEditText = findViewById(R.id.ussdEditText);
+        //ussdEditText = findViewById(R.id.ussdEditText);
         callUssdBtn = findViewById(R.id.callUssdBtn);
         acceb_bt = findViewById(R.id.acceb_bt);
 
@@ -56,6 +56,8 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     runUssd();
+                    Intent intent = new Intent(MainActivity.this, UssdService.class);
+                    startService(intent);
                     Log.d("click", "Okay Clicked");
                 }
             });
@@ -63,8 +65,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void runUssd(){
-        //String ussdCode = "*123#";
-        String ussdCode = ussdEditText.getText().toString();
+        String ussdCode = "*121#";
+        //String ussdCode = ussdEditText.getText().toString();
 
 
 

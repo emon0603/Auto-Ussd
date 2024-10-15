@@ -2,11 +2,13 @@ package com.bangladeshisoftware.autoussd;
 
 import android.accessibilityservice.AccessibilityService;
 import android.accessibilityservice.AccessibilityServiceInfo;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.Toast;
+
 import java.util.List;
 import java.util.ArrayList;
 
@@ -49,6 +51,7 @@ public class UssdService extends AccessibilityService {
 
                     // পরবর্তী নাম্বারের জন্য ইনডেক্স বাড়ানো
                     currentIndex++;
+                    Log.d("index", "");
                 }
             }
         } catch (Exception e) {
@@ -81,4 +84,15 @@ public class UssdService extends AccessibilityService {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        Log.d("repete", "Service Started");
+        currentIndex = 0;  // প্রতিবার নতুন শুরুতে ইনডেক্স রিসেট করা হবে
+        return START_STICKY;
+    }
+
+
+
+
 }
